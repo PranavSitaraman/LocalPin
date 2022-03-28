@@ -1,4 +1,5 @@
-﻿create table if not exists users
+drop table users cascade;
+create table if not exists users
 (
     userid       uuid         not null
         constraint pk_users
@@ -14,6 +15,7 @@
 alter table users
     owner to localpin;
 
+drop table credentials cascade;
 create table if not exists credentials
 (
     credentialid uuid          not null
@@ -30,6 +32,7 @@ create table if not exists credentials
 alter table credentials
     owner to localpin;
 
+drop table pin_types cascade;
 create table if not exists pin_types
 (
     id    uuid         not null
@@ -46,6 +49,7 @@ alter table pin_types
 create unique index pin_types_id_uindex
     on pin_types (id);
 
+drop table pins cascade;
 create table if not exists pins
 (
     id      uuid             not null
@@ -70,6 +74,7 @@ alter table pins
 create unique index pins_id_uindex
     on pins (id);
 
+drop table pin_bodies cascade;
 create table if not exists pin_bodies
 (
     id          uuid not null
@@ -85,6 +90,7 @@ alter table pin_bodies
 create unique index pin_bodies_id_uindex
     on pin_bodies (id);
 
+drop table comments cascade;
 create table if not exists comments
 (
     id      uuid      not null
